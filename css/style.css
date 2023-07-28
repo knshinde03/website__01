@@ -1,0 +1,286 @@
+/*#region || RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* #endregion */
+
+/*#region || VARIABLES */
+:root {
+    --HEADER-BGCOLOR: rgb(7, 7, 66);
+    --HEADER-COLOR: whitesmoke;
+    --NAV-BGCOLOR: rgba(20, 20, 65, 0.616);
+    --NAV-COLOR: whitesmoke;
+    --HERO-COLOR: rgba(245, 245, 245, 0.671);
+    --BODY-COLOR: whitesmoke;
+    --ABOUT-BGCOLOR: rgba(0, 0, 0, 0.7);
+}
+/* #endregion */
+
+/*#region || FONTS */
+@font-face {
+    font-family: The-Doctor;
+    src: url(../fonts/TheDoctor.ttf);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto&display=swap');
+/* #endregion */
+
+/*#region || UTILITY */
+.nowrap {
+    white-space: nowrap;
+}
+/* #endregion */
+
+/*#region || MOBILE DEVICE */
+@media screen and (max-width: 481px) {
+    /*#region --> BODY */
+    body {
+        width: 100%;
+    }
+    /* #endregion */
+
+    /*#region --> HEADER */
+    .header {
+        background-color: var(--HEADER-BGCOLOR);
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .header__h1 a:any-link {
+        font-family: The-Doctor, sans-serif;
+        text-decoration: none;
+        color: var(--HEADER-COLOR);
+        font-weight: lighter;
+        font-size: 2.25rem;
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /*#region >>> HAMBURGER MENU BUTTON */
+    .header__menu {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 1.5rem;
+        height: 30px ;
+    }
+
+    .menu-before,
+    .menu-center,
+    .menu-after {
+        width: 40px;
+        height: 5px;
+        background-color: var(--HEADER-COLOR);
+        transform-origin: center;
+    }
+    /* #endregion */
+
+    /*#region >>> NAVIGATION */
+    .header__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--NAV-BGCOLOR);
+        width: 100%;
+        transform-origin: top;
+        animation: showMenu 0.5s forwards ease-in-out;
+    }
+
+    .header__nav ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Roboto', sans-serif;
+        justify-content: space-evenly;
+        font-size: 1.15rem;
+    }
+
+    .header__nav ul li {
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+
+    .header__nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .header__nav ul li a:any-link {
+        color: var(--NAV-COLOR);
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    @keyframes showMenu {
+        0% {
+            transform: scaleY(0);
+        }        
+        80% {
+            transform: scaleY(1.2);
+        }
+        100% {
+            transform: scaleY(1);
+        }
+    }
+    /* #endregion */
+    /* #endregion */
+
+    /*#region --> HERO */
+    .hero {
+        width: 100%;
+        height: 85vh;
+        background: url(../img/space_1.jpeg);
+        display: flex;
+        align-items: center;
+    }
+
+    .hero__hover {
+        width: 100%;
+        padding: 2rem 0;
+    }
+
+    .hero__caption1,
+    .hero__caption2 {
+        color: var(--HERO-COLOR);
+        font-family: 'Oswald', sans-serif;
+        font-size: 2.5rem;
+        text-shadow: 5px 5px 5px black;
+        text-align: center;
+        transition: transform 1s;
+    }
+
+    .hero__caption2 {
+        transition: opacity 0.5s;
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    .hero__hover:hover .hero__caption1{
+        transform: translateY(-1.5rem);
+    }
+
+    .hero__hover:hover .hero__caption2 {
+        transition: opacity 1s;
+        transition-delay: 0.25s; 
+        opacity: 1;
+    }
+
+    .hero__line {
+        margin-left: 5%;
+        width: 90%;
+        background-color: var(--HERO-COLOR);
+        height: 5px;
+        border-radius: 50%;
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+
+    .hero__hover:hover .hero__line {
+        transition: transform 1s;
+        transition-delay: 0.75s;
+        transform: scaleX(1);
+    }
+    /* #endregion */
+
+    /*#region --> ABOUT */
+    .about {
+        width: 100%;
+        background: url(../img/pxfuel\ \(1\).jpg);
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: bottom;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-pic {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1rem;
+    }
+    
+    .profile-pic img {
+        width: 7rem;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .profile-pic div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .profile-pic h2 {
+        font-family: 'Oswald', sans-serif;
+        color: var(--BODY-COLOR);
+        font-size: 1.75rem;
+        text-shadow: 5px 5px 5px black;
+        padding-bottom: 15px;
+    }
+
+    .profile-pic h3 {
+        font-family: 'Times New Roman', Times, serif;
+        color: var(--BODY-COLOR);
+        text-align: center;
+        font-weight: lighter;
+        text-shadow: 5px 5px 5px black;
+        font: 1.75rem;
+    }
+
+    .about section{
+        width: 94%;
+        background-color: var(--ABOUT-BGCOLOR);
+        padding: 1rem;
+        color: var(--BODY-COLOR);
+        font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 2rem;
+    }
+
+    .about section:nth-child(even) {
+        border-left: 2px solid var(--BODY-COLOR);
+        text-align: left;
+    }
+
+    .about section:nth-child(odd) {
+        border-right: 2px solid var(--BODY-COLOR);
+        text-align: right;
+    }
+
+    .about section:nth-child(1) {
+        padding-bottom: 1rem;
+        width: 100%;
+        background-color: var(--ABOUT-BGCOLOR);
+        margin-bottom: 1.5rem;
+        border: none;
+    }
+
+    .about section h2 {
+        font-size: 1.75rem;
+        font-family: 'Roboto', sans-serif;
+        text-shadow: 5px 5px 5px black;
+    }
+
+    .about section p {
+        font-size: 1.25rem;
+        margin-top: 1rem;
+        line-height: 1.5;
+    }
+    /* #endregion */
+}
