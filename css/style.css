@@ -283,4 +283,16 @@
         line-height: 1.5;
     }
     /* #endregion */
+
+    /*#region --> FOOTER */
+    .footer {
+        color: var(--HEADER-COLOR);
+        background-color: var(--HEADER-BGCOLOR);
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    /* #endregion */
 }

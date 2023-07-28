@@ -1,3 +1,8 @@
+const year = document.getElementById("year");
+const thisYear = new Date().getFullYear();
+year.setAttribute("datetime", thisYear);
+year.textContent = thisYear;
+
 function hamburgerMenuButton() {
     var nav = document.querySelector(".header__nav");
     var lineBefore = document.querySelector(".menu-before");
